@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe "Assignments" do
-  describe "GET /assignments" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get assignments_index_path
-      response.status.should be(200)
-    end
+  describe "GET /assignments" do 
+    
+    it "should have the content 'assignments'" do
+      visit '/assignments/index'
+      expect(page).to have_content('assignments')
+    end  
   end
 end
