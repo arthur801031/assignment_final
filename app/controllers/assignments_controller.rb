@@ -25,7 +25,6 @@ class AssignmentsController < ApplicationController
   # POST /assignments.json
   def create
     @assignment = Assignment.new(assignment_params)
-    @username = 'sevenex'
     respond_to do |format|
       if @assignment.save
         format.html { redirect_to @assignment, notice: 'Assignment was successfully created.' }
@@ -35,8 +34,6 @@ class AssignmentsController < ApplicationController
         format.json { render json: @assignment.errors, status: :unprocessable_entity }
       end
     end
-
-    ModelMailer.new_record_notification(@username).deliver
   end
 
   # PATCH/PUT /assignments/1

@@ -27,8 +27,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to Assignment Tracker!"
+      flash[:success] = "Welcome to Assignment Tracker! An email has been sent to your registered email address."
       redirect_to @user
+      ModelMailer.new_record_notification(@user.email).deliver
     else
       render 'new'
     end
