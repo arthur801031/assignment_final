@@ -32,7 +32,6 @@ class UsersController < ApplicationController
       sign_in @user
       flash[:success] = "Welcome to Assignment Tracker! An email has been sent to your registered email address."
       redirect_to @user
-      ModelMailer.new_record_notification(@user.email).deliver
     else
       render 'new'
     end
