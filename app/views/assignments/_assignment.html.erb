@@ -1,7 +1,7 @@
 <li>
-  <span class="title"><%= assignment.title %></span>
-  <span class="description"><%= assignment.description %></span>
-  <span class="datetime"><%= assignment.duedate %></span>
+  <span class="title"><b>Title: </b><%= assignment.title %>. </span>
+  <span class="description"><b>Description: </b><%= assignment.description %>. </span>
+  <span class="datetime"><b>Due date: </b><%= assignment.duedate %>.</span>
   <% if current_user?(assignment.user) %>
     <%= link_to "delete", assignment, method: :delete,
                                      data: { confirm: "You sure?" }%>
