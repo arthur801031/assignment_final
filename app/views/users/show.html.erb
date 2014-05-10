@@ -24,7 +24,7 @@
 
 <div class="span8">
     <% if @user.assignments.any? %>
-      <h3>Microposts (<%= @user.assignments.count %>)</h3>
+      <h3>Assignments (<%= @user.assignments.count %>)</h3>
       <ol class="assignments">
         <%= render @assignments %>
       </ol>
