@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @assign = Assignment.new
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Assignment Tracker! An email has been sent to your registered email address."
