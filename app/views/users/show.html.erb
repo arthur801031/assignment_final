@@ -21,3 +21,13 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+
+<div class="span8">
+    <% if @user.assignments.any? %>
+      <h3>Microposts (<%= @user.assignments.count %>)</h3>
+      <ol class="assignments">
+        <%= render @assignments %>
+      </ol>
+      <%= will_paginate @assignments %>
+    <% end %>
+</div>
