@@ -8,6 +8,6 @@ class ModelMailer < ActionMailer::Base
   #
   def new_record_notification(username)
     @username = username
-    mail to: "yuanzhelee@gmail.com", subject: "Welcome to Assignment Tracker"
+    mail to: @username, subject: "Welcome to Assignment Tracker"
   end
 end

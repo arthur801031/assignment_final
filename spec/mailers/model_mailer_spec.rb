@@ -6,7 +6,7 @@ describe ModelMailer do
 
     it "renders the headers" do
       mail.subject.should eq("Welcome to Assignment Tracker")
-      mail.to.should eq(["yuanzhelee@gmail.com"])
+      mail.to.should eq(["hi"])
       mail.from.should eq(["iliu3@wisc.edu"])
     end
   end
