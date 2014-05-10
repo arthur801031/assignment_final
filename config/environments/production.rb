@@ -81,4 +81,13 @@ Assignments::Application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security,
   # and use secure cookies.
   config.force_ssl = true
+
+  config.action_mailer.smtp_settings = {
+  :authentication => :plain,
+  :address => "smtp.mailgun.org",
+  :port => 587,
+  :domain => "sandbox7ff13844d8164500b066ab2269a907e0.mailgun.org",
+  :user_name => "postmaster@sandbox7ff13844d8164500b066ab2269a907e0.mailgun.org",
+  :password => "6irpfud4dtf0"
+  }
 end
