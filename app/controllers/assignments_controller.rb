@@ -1,5 +1,6 @@
 class AssignmentsController < ApplicationController
-  before_action :signed_in_user, only: [:create, :show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :correct_user,   only: :destroy
 
   # GET /assignments
   # GET /assignments.json
@@ -52,10 +53,7 @@ class AssignmentsController < ApplicationController
   # DELETE /assignments/1.json
   def destroy
     @assignment.destroy
-    respond_to do |format|
-      format.html { redirect_to assignments_url }
-      format.json { head :no_content }
-    end
+    redirect_to root_url
   end
 
   private
@@ -67,5 +65,9 @@ class AssignmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def assignment_params
       params.require(:assignment).permit(:title, :description, :duedate)
+    end
+    def correct_user
+      @assignment = current_user.assignments.find_by(id: params[:id])
+      redirect_to root_url if @assignment.nil?
     end
 end

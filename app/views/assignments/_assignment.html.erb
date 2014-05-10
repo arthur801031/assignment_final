@@ -2,4 +2,8 @@
   <span class="title"><%= assignment.title %></span>
   <span class="description"><%= assignment.description %></span>
   <span class="datetime"><%= assignment.duedate %></span>
+  <% if current_user?(assignment.user) %>
+    <%= link_to "delete", assignment, method: :delete,
+                                     data: { confirm: "You sure?" }%>
+  <% end %>
 </li>
